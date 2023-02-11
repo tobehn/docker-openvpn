@@ -88,7 +88,9 @@ tls-auth ta.key 1
         echo "cipher $OVPN_CIPHER"
     fi
 
-    if [ -n "$OVPN_AUTH" ]; then
+    if [ "$OVPN_AUTH" == "nocache" ]; then
+        echo "auth-$OVPN_AUTH"
+    else
         echo "auth $OVPN_AUTH"
     fi
 
