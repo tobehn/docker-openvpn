@@ -348,12 +348,7 @@ fi
 
 [ -n "$OVPN_TLS_CIPHER" ] && echo "tls-cipher $OVPN_TLS_CIPHER" >> "$conf"
 [ -n "$OVPN_CIPHER" ] && echo "cipher $OVPN_CIPHER" >> "$conf"
-if [ "$OVPN_AUTH" == "nocache" ]; then
-  [ -n "$OVPN_AUTH" ] && echo "auth-$OVPN_AUTH" >> "$conf"
-else
-  [ -n "$OVPN_AUTH" ] && echo "auth $OVPN_AUTH" >> "$conf"
-fi
-
+[ -n "$OVPN_AUTH" ] && echo "auth $OVPN_AUTH" >> "$conf"
 [ -n "${OVPN_CLIENT_TO_CLIENT:-}" ] && echo "client-to-client" >> "$conf"
 [ "$OVPN_COMP_LZO" == "1" ] && echo "comp-lzo" >> "$conf"
 [ "$OVPN_COMP_LZO" == "0" ] && echo "comp-lzo no" >> "$conf"
